@@ -4,6 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker
+      .register('sw_cache_pages.js')
+      .then(reg => console.log('Service Worker: registered'))
+      .catch(err => console.log(`Service Worker error: ${err}`))
+  })
+}
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
